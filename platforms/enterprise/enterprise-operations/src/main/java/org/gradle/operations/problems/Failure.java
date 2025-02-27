@@ -1,5 +1,5 @@
 /*
- * Copyright 2024 the original author or authors.
+ * Copyright 2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,27 @@
  * limitations under the License.
  */
 
-package org.gradle.api.problems.internal;
+package org.gradle.operations.problems;
 
-import java.util.Collection;
-import java.util.Collections;
+import org.jspecify.annotations.Nullable;
 
-public interface ProblemLocator {
-    Collection<ProblemInternal> findAll(Throwable t);
+import java.util.List;
+import java.util.Map;
+
+public interface Failure {
+
+    String getClassName();
+
+    @Nullable
+    String getMessage();
+
+    Map<String, String> getMetadata();
+
+    List<StackTraceElement> getStackTrace();
+
+    List<String> getClassLevelAnnotations();
+
+    List<Failure> getCauses();
+
+    List<Problem> getProblems();
 }

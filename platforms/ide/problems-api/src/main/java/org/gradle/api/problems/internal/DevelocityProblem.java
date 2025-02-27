@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 the original author or authors.
+ * Copyright 2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,25 +21,21 @@ import org.gradle.operations.problems.DocumentationLink;
 import org.gradle.operations.problems.FileLocation;
 import org.gradle.operations.problems.LineInFileLocation;
 import org.gradle.operations.problems.OffsetInFileLocation;
+import org.gradle.operations.problems.Problem;
 import org.gradle.operations.problems.ProblemDefinition;
 import org.gradle.operations.problems.ProblemGroup;
 import org.gradle.operations.problems.ProblemLocation;
 import org.gradle.operations.problems.ProblemSeverity;
-import org.gradle.operations.problems.ProblemUsageProgressDetails;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
-public class DefaultProblemProgressDetails implements ProblemProgressDetails, ProblemUsageProgressDetails {
-    private final ProblemInternal problem;
+public class DevelocityProblem implements Problem {
+    private final InternalProblem problem;
 
-    public DefaultProblemProgressDetails(ProblemInternal problem) {
+    public DevelocityProblem(InternalProblem problem) {
         this.problem = problem;
-    }
-
-    public ProblemInternal getProblem() {
-        return problem;
     }
 
     @Override
@@ -88,10 +84,42 @@ public class DefaultProblemProgressDetails implements ProblemProgressDetails, Pr
         return convertProblemLocations(problem.getContextualLocations());
     }
 
+    @NonNull
+    private ImmutableList<ProblemLocation> convertProblemLocations(List<org.gradle.api.problems.ProblemLocation> locations) {
+        ImmutableList.Builder<ProblemLocation> builder = ImmutableList.builder();
+        for (org.gradle.api.problems.ProblemLocation location : locations) {
+            ProblemLocation develocityLocation = convertToLocation(location);
+            if (develocityLocation != null) {
+                builder.add(develocityLocation);
+            }
+        }
+        return builder.build();
+    }
+
     @Nullable
-    @Override
-    public Throwable getFailure() {
-        return problem.getException() == null ? null : problem.getException();
+    private static ProblemLocation convertToLocation(final org.gradle.api.problems.ProblemLocation location) {
+        if (location instanceof org.gradle.api.problems.FileLocation) {
+            return convertToDevelocityFileLocation(location);
+        } else if (location instanceof TaskLocation) {
+            // The Develocity plugin will infer the task location from the build operation hierarchy - no need to send this contextual information
+            return null;
+        } else if (location instanceof org.gradle.api.problems.internal.PluginIdLocation) {
+            return new DevelocityPluginIdLocation((PluginIdLocation) location);
+        } else if (location instanceof org.gradle.api.problems.internal.StackTraceLocation) {
+            return new DevelocityStackTraceLocation((StackTraceLocation) location);
+        }
+        throw new IllegalArgumentException("Unknown location type: " + location.getClass() + ", location: '" + location + "'");
+    }
+
+    @NonNull
+    private static FileLocation convertToDevelocityFileLocation(org.gradle.api.problems.ProblemLocation location) {
+        if (location instanceof org.gradle.api.problems.LineInFileLocation) {
+            return new DevelocityLineInFileLocation((org.gradle.api.problems.LineInFileLocation) location);
+        } else if (location instanceof org.gradle.api.problems.OffsetInFileLocation) {
+            return new DevelocityOffsetInFileLocation((org.gradle.api.problems.OffsetInFileLocation) location);
+        } else {
+            return new DevelocityFileLocation((org.gradle.api.problems.FileLocation) location);
+        }
     }
 
     private static class DevelocityProblemDefinition implements ProblemDefinition {
@@ -113,14 +141,14 @@ public class DefaultProblemProgressDetails implements ProblemProgressDetails, Pr
 
         @Override
         public ProblemGroup getGroup() {
-            return new DevelocityProblemGroup(definition.getId().getGroup());
+            return new DevelocityProblemDefinition.DevelocityProblemGroup(definition.getId().getGroup());
         }
 
         @Nullable
         @Override
         public DocumentationLink getDocumentationLink() {
-            DocLinkInternal documentationLink = (DocLinkInternal) definition.getDocumentationLink();
-            return documentationLink == null ? null : new DevelocityDocumentationLink(documentationLink);
+            InternalDocLink documentationLink = (InternalDocLink) definition.getDocumentationLink();
+            return documentationLink == null ? null : new DevelocityProblemDefinition.DevelocityDocumentationLink(documentationLink);
         }
 
         private static class DevelocityProblemGroup implements ProblemGroup {
@@ -144,14 +172,14 @@ public class DefaultProblemProgressDetails implements ProblemProgressDetails, Pr
             @Override
             public ProblemGroup getParent() {
                 org.gradle.api.problems.ProblemGroup parent = currentGroup.getParent();
-                return parent == null ? null : new DevelocityProblemGroup(parent);
+                return parent == null ? null : new DevelocityProblemDefinition.DevelocityProblemGroup(parent);
             }
         }
 
         private static class DevelocityDocumentationLink implements DocumentationLink {
-            private final DocLinkInternal documentationLink;
+            private final InternalDocLink documentationLink;
 
-            public DevelocityDocumentationLink(DocLinkInternal documentationLink) {
+            public DevelocityDocumentationLink(InternalDocLink documentationLink) {
                 this.documentationLink = documentationLink;
             }
 
