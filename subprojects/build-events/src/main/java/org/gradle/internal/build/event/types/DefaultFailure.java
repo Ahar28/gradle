@@ -28,7 +28,6 @@ import java.io.Serializable;
 import java.io.StringWriter;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.toList;
@@ -72,27 +71,29 @@ public class DefaultFailure implements Serializable, InternalFailure {
     }
 
     public static InternalFailure fromThrowable(Throwable throwable) {
-        return fromThrowable(throwable, t -> ImmutableList.of(), p -> null);
+        return fromThrowable(throwable, p -> null);
     }
 
-    public static InternalFailure fromThrowable(Throwable t, ProblemLocator problemLocator, Function<ProblemInternal, InternalBasicProblemDetailsVersion3> mapper) {
+    public static InternalFailure fromThrowable(Throwable t, Function<ProblemInternal, InternalBasicProblemDetailsVersion3> mapper) {
+        Failure failure = DefaultFailureFactory.withDefaultClassifier().create(t);
+        return fromFailure(failure, mapper);
+    }
 
-        // Iterate through the cause hierarchy, with including multi-cause exceptions and convert them to a corresponding Failure with the same cause structure. If the current exception has a
-        // corresponding problem in `problemsMapping` (ie the exception was thrown via ProblemReporter.throwing()), then the problem will be also available in the new failure object.
+    public static InternalFailure fromFailure(Failure buildFailure, Function<ProblemInternal, InternalBasicProblemDetailsVersion3> mapper) {
+        // Iterate through the cause hierarchy and convert them to a corresponding Failure with the same cause structure. If the current failure has a
+        // corresponding problem (ie the exception was thrown via ProblemReporter.throwing()), then the problem will be also available in the new failure object.
         StringWriter out = new StringWriter();
         PrintWriter wrt = new PrintWriter(out);
-        t.printStackTrace(wrt);
-        Throwable cause = t.getCause();
-        List<InternalFailure> causeFailures = getCauseFailures(problemLocator, mapper, cause);
-        List<InternalBasicProblemDetailsVersion3> problemMapping =
-            problemLocator.findAll(t)
-                .stream()
-                .filter(Objects::nonNull)
-                .map(mapper)
-                .filter(Objects::nonNull)
-                .collect(toList());
+        FailurePrinter.print(wrt, buildFailure, FailurePrinterListener.NO_OP);
+        List<Failure> causes = buildFailure.getCauses();
+        List<InternalFailure> causeFailures = causes.stream()
+            .map(cause -> fromFailure(cause, mapper))
+            .collect(toList());
+        List<InternalBasicProblemDetailsVersion3> problemDetails = buildFailure.getProblems().stream()
+            .map(mapper)
+            .collect(toList());
 
-        return new DefaultFailure(t.getMessage(), out.toString(), causeFailures, problemMapping);
+        return new DefaultFailure(buildFailure.getMessage(), out.toString(), causeFailures, problemDetails);
     }
 
     @NonNull
