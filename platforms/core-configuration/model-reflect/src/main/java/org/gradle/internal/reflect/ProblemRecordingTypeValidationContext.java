@@ -18,7 +18,7 @@ package org.gradle.internal.reflect;
 
 import org.gradle.api.Action;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblems;
+import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.problems.internal.TypeValidationDataSpec;
 import org.gradle.internal.reflect.validation.DefaultTypeAwareProblemBuilder;
 import org.gradle.internal.reflect.validation.TypeAwareProblemBuilder;
@@ -33,12 +33,12 @@ import java.util.function.Supplier;
 abstract public class ProblemRecordingTypeValidationContext implements TypeValidationContext {
     private final Class<?> rootType;
     private final Supplier<Optional<PluginId>> pluginId;
-    private final InternalProblems problems;
+    private final ProblemsInternal problems;
 
     public ProblemRecordingTypeValidationContext(
         @Nullable Class<?> rootType,
         Supplier<Optional<PluginId>> pluginId,
-        InternalProblems problems
+        ProblemsInternal problems
     ) {
         this.rootType = rootType;
         this.pluginId = pluginId;

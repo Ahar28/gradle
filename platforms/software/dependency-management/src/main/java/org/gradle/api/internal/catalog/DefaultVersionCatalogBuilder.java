@@ -44,7 +44,7 @@ import org.gradle.api.problems.ProblemSpec;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemInternal;
 import org.gradle.api.problems.internal.InternalProblemSpec;
-import org.gradle.api.problems.internal.InternalProblems;
+import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.provider.Property;
 import org.gradle.internal.FileUtils;
 import org.gradle.internal.classpath.Instrumented;
@@ -150,7 +150,7 @@ public abstract class DefaultVersionCatalogBuilder implements VersionCatalogBuil
     }
 
     @Inject
-    protected abstract InternalProblems getProblemsService();
+    protected abstract ProblemsInternal getProblemsService();
 
     @Override
     public String getLibrariesExtensionName() {
@@ -221,7 +221,7 @@ public abstract class DefaultVersionCatalogBuilder implements VersionCatalogBuil
             .severity(ERROR);
     }
 
-    private static RuntimeException throwVersionCatalogProblemException(InternalProblems problemsService, ProblemInternal problem) {
+    private static RuntimeException throwVersionCatalogProblemException(ProblemsInternal problemsService, ProblemInternal problem) {
         throw throwError(problemsService, "Invalid catalog definition", ImmutableList.of(problem));
     }
 
