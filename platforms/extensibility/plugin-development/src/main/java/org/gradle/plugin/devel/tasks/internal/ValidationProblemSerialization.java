@@ -51,7 +51,7 @@ import org.gradle.api.problems.internal.DefaultTaskLocation;
 import org.gradle.api.problems.internal.DefaultTypeValidationData;
 import org.gradle.api.problems.internal.DeprecationData;
 import org.gradle.api.problems.internal.GeneralData;
-import org.gradle.api.problems.internal.InternalDocLink;
+import org.gradle.api.problems.internal.DocLinkInternal;
 import org.gradle.api.problems.internal.ProblemInternal;
 import org.gradle.api.problems.internal.PropertyTraceData;
 import org.gradle.api.problems.internal.TypeValidationData;
@@ -399,7 +399,7 @@ public class ValidationProblemSerialization {
 
             out.beginObject();
             out.name("url").value(value.getUrl());
-            out.name("consultDocumentationMessage").value(((InternalDocLink) value).getConsultDocumentationMessage());
+            out.name("consultDocumentationMessage").value(((DocLinkInternal) value).getConsultDocumentationMessage());
             out.endObject();
         }
 
@@ -427,7 +427,7 @@ public class ValidationProblemSerialization {
 
             final String finalUrl = url;
             final String finalConsultDocumentationMessage = consultDocumentationMessage;
-            return new InternalDocLink() {
+            return new DocLinkInternal() {
                 @Override
                 public String getUrl() {
                     return finalUrl;
