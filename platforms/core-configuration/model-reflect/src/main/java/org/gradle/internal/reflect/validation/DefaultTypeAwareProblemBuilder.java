@@ -19,7 +19,7 @@ package org.gradle.internal.reflect.validation;
 import org.gradle.api.problems.ProblemId;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblemBuilder;
+import org.gradle.api.problems.internal.ProblemBuilderInternal;
 import org.gradle.api.problems.internal.TypeValidationData;
 import org.gradle.api.problems.internal.TypeValidationDataSpec;
 import org.jspecify.annotations.NullMarked;
@@ -32,7 +32,7 @@ import java.util.Optional;
 @NullMarked
 public class DefaultTypeAwareProblemBuilder extends DelegatingProblemBuilder implements TypeAwareProblemBuilder {
 
-    public DefaultTypeAwareProblemBuilder(InternalProblemBuilder problemBuilder) {
+    public DefaultTypeAwareProblemBuilder(ProblemBuilderInternal problemBuilder) {
         super(problemBuilder);
     }
 

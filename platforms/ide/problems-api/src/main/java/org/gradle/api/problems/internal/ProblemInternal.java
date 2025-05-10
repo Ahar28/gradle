@@ -29,7 +29,7 @@ public interface ProblemInternal extends Problem {
     /**
      * Returns a problem builder with fields initialized with values from this instance.
      */
-    InternalProblemBuilder toBuilder(ProblemsInfrastructure infrastructure);
+    ProblemBuilderInternal toBuilder(ProblemsInfrastructure infrastructure);
 
     /**
      * Returns the problem definition, i.e. the data that is independent of the report context.

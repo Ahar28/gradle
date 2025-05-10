@@ -27,7 +27,7 @@ import org.gradle.api.problems.ProblemId
 import org.gradle.api.problems.ProblemLocation
 import org.gradle.api.problems.Severity
 import org.gradle.api.problems.internal.InternalDocLink
-import org.gradle.api.problems.internal.InternalProblemBuilder
+import org.gradle.api.problems.internal.ProblemBuilderInternal
 import org.gradle.api.problems.internal.PluginIdLocation
 import org.gradle.api.problems.internal.ProblemInternal
 import org.gradle.api.problems.internal.ProblemsInfrastructure
@@ -213,7 +213,7 @@ class ReceivedProblem implements ProblemInternal {
     }
 
     @Override
-    InternalProblemBuilder toBuilder(ProblemsInfrastructure infrastructure) {
+    ProblemBuilderInternal toBuilder(ProblemsInfrastructure infrastructure) {
         throw new UnsupportedOperationException("Not implemented")
     }
 

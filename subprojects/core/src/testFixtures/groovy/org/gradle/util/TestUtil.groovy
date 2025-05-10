@@ -46,7 +46,7 @@ import org.gradle.api.problems.Problem
 import org.gradle.api.problems.ProblemReporter
 import org.gradle.api.problems.internal.DefaultProblems
 import org.gradle.api.problems.internal.ExceptionProblemRegistry
-import org.gradle.api.problems.internal.InternalProblemBuilder
+import org.gradle.api.problems.internal.ProblemBuilderInternal
 import org.gradle.api.problems.internal.InternalProblemReporter
 import org.gradle.api.problems.internal.InternalProblems
 import org.gradle.api.problems.internal.ProblemInternal
@@ -428,7 +428,7 @@ class TestProblems implements InternalProblems {
     }
 
     @Override
-    InternalProblemBuilder getProblemBuilder() {
+    ProblemBuilderInternal getProblemBuilder() {
         delegate.getProblemBuilder()
     }
 

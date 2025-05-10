@@ -24,7 +24,7 @@ import org.gradle.api.problems.ProblemGroup;
 import org.gradle.api.problems.ProblemId;
 import org.gradle.api.problems.Severity;
 
-public interface InternalProblemBuilder extends InternalProblemSpec {
+public interface ProblemBuilderInternal extends InternalProblemSpec {
 
     /**
      * Creates the new problem. Calling this method won't report the problem via build operations, it can be done separately by calling {@link org.gradle.api.problems.internal.InternalProblemReporter#report(Problem)}.
@@ -34,56 +34,56 @@ public interface InternalProblemBuilder extends InternalProblemSpec {
     ProblemInternal build();
 
     @Override
-    InternalProblemBuilder id(ProblemId problemId);
+    ProblemBuilderInternal id(ProblemId problemId);
 
     @Override
-    InternalProblemBuilder id(String name, String displayName, ProblemGroup parent);
+    ProblemBuilderInternal id(String name, String displayName, ProblemGroup parent);
 
     @Override
-    InternalProblemBuilder taskLocation(String buildTreePath);
+    ProblemBuilderInternal taskLocation(String buildTreePath);
 
     @Override
-    InternalProblemBuilder documentedAt(DocLink doc);
+    ProblemBuilderInternal documentedAt(DocLink doc);
 
     @Override
-    InternalProblemBuilder contextualLabel(String contextualLabel);
+    ProblemBuilderInternal contextualLabel(String contextualLabel);
 
     @Override
-    InternalProblemBuilder documentedAt(String url);
+    ProblemBuilderInternal documentedAt(String url);
 
     @Override
-    InternalProblemBuilder fileLocation(String path);
+    ProblemBuilderInternal fileLocation(String path);
 
     @Override
-    InternalProblemBuilder lineInFileLocation(String path, int line);
+    ProblemBuilderInternal lineInFileLocation(String path, int line);
 
     @Override
-    InternalProblemBuilder lineInFileLocation(String path, int line, int column, int length);
+    ProblemBuilderInternal lineInFileLocation(String path, int line, int column, int length);
 
     @Override
-    InternalProblemBuilder offsetInFileLocation(String path, int offset, int length);
+    ProblemBuilderInternal offsetInFileLocation(String path, int offset, int length);
 
     @Override
-    InternalProblemBuilder stackLocation();
+    ProblemBuilderInternal stackLocation();
 
     @Override
-    InternalProblemBuilder details(String details);
+    ProblemBuilderInternal details(String details);
 
     @Override
-    InternalProblemBuilder solution(String solution);
+    ProblemBuilderInternal solution(String solution);
 
     @Override
-    <U extends AdditionalDataSpec> InternalProblemBuilder additionalDataInternal(Class<? extends U> specType, Action<? super U> config);
+    <U extends AdditionalDataSpec> ProblemBuilderInternal additionalDataInternal(Class<? extends U> specType, Action<? super U> config);
 
     // interface should be public <T> void additionalData(Class<T> type, Action<? super T> config)
     @Override
-    <T extends AdditionalData> InternalProblemBuilder additionalData(Class<T> type, Action<? super T> config);
+    <T extends AdditionalData> ProblemBuilderInternal additionalData(Class<T> type, Action<? super T> config);
 
     @Override
-    InternalProblemBuilder withException(Throwable t);
+    ProblemBuilderInternal withException(Throwable t);
 
     @Override
-    InternalProblemBuilder severity(Severity severity);
+    ProblemBuilderInternal severity(Severity severity);
 
     ProblemsInfrastructure getInfrastructure();
 }
