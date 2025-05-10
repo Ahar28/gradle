@@ -88,7 +88,7 @@ public class DefaultProblemReporter implements InternalProblemReporter {
     }
 
     @NonNull
-    private InternalProblem addExceptionToProblem(Throwable exception, Problem problem) {
+    private ProblemInternal addExceptionToProblem(Throwable exception, Problem problem) {
         return getBuilder(problem).withException(transform(exception)).build();
     }
 
@@ -109,7 +109,7 @@ public class DefaultProblemReporter implements InternalProblemReporter {
     }
 
     @Override
-    public InternalProblem internalCreate(Action<? super InternalProblemSpec> action) {
+    public ProblemInternal internalCreate(Action<? super InternalProblemSpec> action) {
         DefaultProblemBuilder defaultProblemBuilder = createProblemBuilder();
         action.execute(defaultProblemBuilder);
         return defaultProblemBuilder.build();
@@ -149,7 +149,7 @@ public class DefaultProblemReporter implements InternalProblemReporter {
      */
     @Override
     public void report(Problem problem, OperationIdentifier id) {
-        InternalProblem internalProblem = (InternalProblem) problem;
+        ProblemInternal internalProblem = (ProblemInternal) problem;
         Throwable exception = internalProblem.getException();
         if (exception != null) {
             exceptionProblemRegistry.onProblem(transform(exception), internalProblem);
@@ -159,7 +159,7 @@ public class DefaultProblemReporter implements InternalProblemReporter {
 
     @NonNull
     private InternalProblemBuilder getBuilder(Problem problem) {
-        return ((InternalProblem) problem).toBuilder(infrastructure);
+        return ((ProblemInternal) problem).toBuilder(infrastructure);
     }
 
     private Throwable transform(Throwable failure) {

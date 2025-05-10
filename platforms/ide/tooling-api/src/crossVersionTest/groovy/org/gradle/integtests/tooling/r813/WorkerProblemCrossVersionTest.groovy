@@ -77,7 +77,7 @@ class WorkerProblemCrossVersionTest extends ToolingApiSpecification {
             import java.io.FileWriter;import java.util.stream.Stream;
             import org.gradle.api.problems.AdditionalData;
             import org.gradle.api.problems.internal.InternalProblems;
-            import org.gradle.api.problems.internal.InternalProblem;
+            import org.gradle.api.problems.internal.ProblemInternal;
             import org.gradle.api.problems.internal.InternalProblemSpec;
             import org.gradle.api.problems.ProblemId;
             import org.gradle.api.problems.ProblemGroup;
@@ -98,7 +98,7 @@ class WorkerProblemCrossVersionTest extends ToolingApiSpecification {
                 @Override
                 public void execute() {
                     ProblemId problemId = ProblemId.create("name", "Display name", ProblemGroup.create("generic", "Generic"));
-                    InternalProblem p = getProblems().getInternalReporter().internalCreate(problem -> {
+                    ProblemInternal p = getProblems().getInternalReporter().internalCreate(problem -> {
                         InternalProblemSpec spec = problem.contextualLabel("Tooling API client should receive this problem")
                         .id(problemId);
                          spec.additionalData(SomeData.class, data -> data.setName("someData"));
