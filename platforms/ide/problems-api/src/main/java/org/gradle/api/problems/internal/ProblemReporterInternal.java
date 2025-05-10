@@ -33,5 +33,5 @@ public interface ProblemReporterInternal extends ProblemReporter {
      */
     void report(Problem problem, OperationIdentifier id);
 
-    ProblemInternal internalCreate(Action<? super InternalProblemSpec> action);
+    ProblemInternal internalCreate(Action<? super ProblemSpecInternal> action);
 }

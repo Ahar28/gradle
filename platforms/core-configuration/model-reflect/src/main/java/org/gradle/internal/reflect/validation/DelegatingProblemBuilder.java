@@ -25,7 +25,7 @@ import org.gradle.api.problems.Severity;
 import org.gradle.api.problems.internal.AdditionalDataSpec;
 import org.gradle.api.problems.internal.ProblemInternal;
 import org.gradle.api.problems.internal.ProblemBuilderInternal;
-import org.gradle.api.problems.internal.InternalProblemSpec;
+import org.gradle.api.problems.internal.ProblemSpecInternal;
 import org.gradle.api.problems.internal.ProblemsInfrastructure;
 import org.gradle.problems.ProblemDiagnostics;
 import org.jspecify.annotations.NullMarked;
@@ -141,7 +141,7 @@ class DelegatingProblemBuilder implements ProblemBuilderInternal {
     }
 
     @Override
-    public InternalProblemSpec diagnostics(ProblemDiagnostics diagnostics) {
+    public ProblemSpecInternal diagnostics(ProblemDiagnostics diagnostics) {
         return delegate.diagnostics(diagnostics);
     }
 

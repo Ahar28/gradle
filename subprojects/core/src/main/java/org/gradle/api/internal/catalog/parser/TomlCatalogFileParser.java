@@ -31,7 +31,7 @@ import org.gradle.api.problems.ProblemSpec;
 import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemReporterInternal;
-import org.gradle.api.problems.internal.InternalProblemSpec;
+import org.gradle.api.problems.internal.ProblemSpecInternal;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.internal.logging.text.TreeFormatter;
 import org.jspecify.annotations.NullMarked;
@@ -151,16 +151,16 @@ public class TomlCatalogFileParser {
     }
 
     @NullMarked
-    private static ProblemSpec configureVersionCatalogError(InternalProblemSpec builder, String message, VersionCatalogProblemId catalogProblemId) {
+    private static ProblemSpec configureVersionCatalogError(ProblemSpecInternal builder, String message, VersionCatalogProblemId catalogProblemId) {
         return configureVersionCatalogError(builder, message, catalogProblemId, input -> input);
     }
 
-    private static InternalProblemSpec configureVersionCatalogError(InternalProblemSpec builder, String label, VersionCatalogProblemId catalogProblemId, Function<InternalProblemSpec, InternalProblemSpec> locationDefiner) {
-        InternalProblemSpec definingLocation = builder
+    private static ProblemSpecInternal configureVersionCatalogError(ProblemSpecInternal builder, String label, VersionCatalogProblemId catalogProblemId, Function<ProblemSpecInternal, ProblemSpecInternal> locationDefiner) {
+        ProblemSpecInternal definingLocation = builder
             .id(screamingSnakeToKebabCase(catalogProblemId.name()), "Dependency version catalog problem", GradleCoreProblemGroup.versionCatalog())
             .contextualLabel(label)
             .documentedAt(userManual(VERSION_CATALOG_PROBLEMS, catalogProblemId.name().toLowerCase(Locale.ROOT)));
-        InternalProblemSpec definingCategory = locationDefiner.apply(definingLocation);
+        ProblemSpecInternal definingCategory = locationDefiner.apply(definingLocation);
         return definingCategory
             .severity(ERROR);
     }
@@ -596,7 +596,7 @@ public class TomlCatalogFileParser {
         builder.version(alias, v -> configureVersion(require, strictly, prefer, rejectedVersions, rejectAll, v));
     }
 
-    private RuntimeException throwVersionCatalogProblemException(Action<InternalProblemSpec> action) {
+    private RuntimeException throwVersionCatalogProblemException(Action<ProblemSpecInternal> action) {
         throw throwError(getInternalProblems(), INVALID_TOML_CATALOG_DEFINITION, ImmutableList.of(getInternalReporter().internalCreate(action)));
     }
 }
