@@ -23,7 +23,7 @@ import org.gradle.api.internal.tasks.properties.InspectionSchemeFactory
 import org.gradle.api.problems.Severity
 import org.gradle.api.problems.internal.GradleCoreProblemGroup
 import org.gradle.api.problems.internal.ProblemInternal
-import org.gradle.api.problems.internal.InternalProblemReporter
+import org.gradle.api.problems.internal.ProblemReporterInternal
 import org.gradle.api.problems.internal.ProblemsInternal
 import org.gradle.api.services.BuildService
 import org.gradle.api.services.ServiceReference
@@ -90,7 +90,7 @@ class FlowParametersInstantiator(
     }
 
     private
-    val internalProblemReporter: InternalProblemReporter
+    val internalProblemReporter: ProblemReporterInternal
         get() = problemsService.internalReporter
 
     private

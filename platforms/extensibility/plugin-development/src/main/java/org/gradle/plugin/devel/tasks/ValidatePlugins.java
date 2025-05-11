@@ -28,7 +28,7 @@ import org.gradle.api.problems.ProblemReporter;
 import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblemReporter;
+import org.gradle.api.problems.internal.ProblemReporterInternal;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.CacheableTask;
@@ -146,7 +146,7 @@ public abstract class ValidatePlugins extends DefaultTask {
     }
 
     private void reportProblems(List<? extends Problem> problems) {
-        InternalProblemReporter reporter = getServices().get(ProblemsInternal.class).getInternalReporter();
+        ProblemReporterInternal reporter = getServices().get(ProblemsInternal.class).getInternalReporter();
         problems.forEach(reporter::report);
     }
 

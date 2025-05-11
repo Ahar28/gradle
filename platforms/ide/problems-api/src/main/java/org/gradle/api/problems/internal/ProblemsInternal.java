@@ -28,7 +28,7 @@ public interface ProblemsInternal extends Problems {
      *
      * @return The reporter.
      */
-    InternalProblemReporter getInternalReporter();
+    ProblemReporterInternal getInternalReporter();
 
     ProblemsInfrastructure getInfrastructure();
 

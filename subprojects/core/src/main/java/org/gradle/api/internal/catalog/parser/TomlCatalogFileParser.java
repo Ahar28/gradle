@@ -30,7 +30,7 @@ import org.gradle.api.internal.catalog.problems.VersionCatalogProblemId;
 import org.gradle.api.problems.ProblemSpec;
 import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
-import org.gradle.api.problems.internal.InternalProblemReporter;
+import org.gradle.api.problems.internal.ProblemReporterInternal;
 import org.gradle.api.problems.internal.InternalProblemSpec;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.internal.logging.text.TreeFormatter;
@@ -146,7 +146,7 @@ public class TomlCatalogFileParser {
         }
     }
 
-    private InternalProblemReporter getInternalReporter() {
+    private ProblemReporterInternal getInternalReporter() {
         return getInternalProblems().getInternalReporter();
     }
 
@@ -180,7 +180,7 @@ public class TomlCatalogFileParser {
     }
 
     private void reportErrors(List<TomlParseError> errors) {
-        InternalProblemReporter internalReporter = getInternalReporter();
+        ProblemReporterInternal internalReporter = getInternalReporter();
         errors.stream().map(error -> internalReporter.internalCreate(builder ->
             configureVersionCatalogError(builder, error.getMessage(), TOML_SYNTAX_ERROR, definingLocation -> {
                 definingLocation.lineInFileLocation(catalogFilePath.toAbsolutePath().toString(), error.position().line(), error.position().column());

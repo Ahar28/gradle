@@ -27,7 +27,7 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.Collection;
 
-public class DefaultProblemReporter implements InternalProblemReporter {
+public class DefaultProblemReporter implements ProblemReporterInternal {
 
     private final ProblemSummarizer problemSummarizer;
     private final ProblemsInfrastructure infrastructure;

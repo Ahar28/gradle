@@ -21,7 +21,7 @@ import org.gradle.api.internal.GeneratedSubclasses;
 import org.gradle.api.problems.Severity;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblemReporter;
+import org.gradle.api.problems.internal.ProblemReporterInternal;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.internal.MutableReference;
 import org.gradle.internal.execution.UnitOfWork;
@@ -78,7 +78,7 @@ public class ValidateStep<C extends BeforeExecutionContext, R extends Result> im
             .ifPresent(beforeExecutionState -> validateImplementations(work, beforeExecutionState, validationContext));
 
         ProblemsInternal problemsService = validationContext.getProblemsService();
-        InternalProblemReporter reporter = problemsService.getInternalReporter();
+        ProblemReporterInternal reporter = problemsService.getInternalReporter();
         List<ProblemInternal> problems = validationContext.getProblems();
 
         Map<Severity, ImmutableList<ProblemInternal>> problemsMap = problems.stream()
@@ -172,7 +172,7 @@ public class ValidateStep<C extends BeforeExecutionContext, R extends Result> im
         WorkValidationException workValidationException = WorkValidationException.forProblems(uniqueErrors)
             .withSummaryForContext(work.getDisplayName(), validationContext)
             .get();
-        InternalProblemReporter reporter = validationContext.getProblemsService().getInternalReporter();
+        ProblemReporterInternal reporter = validationContext.getProblemsService().getInternalReporter();
         throw reporter.throwing(workValidationException, validationErrors);
     }
 
