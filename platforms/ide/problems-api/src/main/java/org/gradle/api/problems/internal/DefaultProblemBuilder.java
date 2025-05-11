@@ -269,7 +269,7 @@ public class DefaultProblemBuilder implements ProblemBuilderInternal {
     }
 
     @Override
-    public InternalProblemSpec diagnostics(ProblemDiagnostics diagnostics) {
+    public ProblemSpecInternal diagnostics(ProblemDiagnostics diagnostics) {
         this.diagnostics = diagnostics;
         return this;
     }

@@ -30,7 +30,7 @@ import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblemSpec;
+import org.gradle.api.problems.internal.ProblemSpecInternal;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.provider.Provider;
 import org.gradle.api.provider.ProviderFactory;
@@ -514,7 +514,7 @@ public class LibrariesSourceGenerator extends AbstractSourceGenerator {
         throw throwError(problemsService, ERROR_HEADER, ImmutableList.of(problem));
     }
 
-    private static InternalProblemSpec configureVersionCatalogError(InternalProblemSpec spec, String message, VersionCatalogProblemId catalogProblemId) {
+    private static ProblemSpecInternal configureVersionCatalogError(ProblemSpecInternal spec, String message, VersionCatalogProblemId catalogProblemId) {
         return spec
             .id(TextUtil.screamingSnakeToKebabCase(catalogProblemId.name()), message, GradleCoreProblemGroup.versionCatalog()) // TODO is message stable?
             .documentedAt(userManual(VERSION_CATALOG_PROBLEMS, catalogProblemId.name().toLowerCase(Locale.ROOT)))

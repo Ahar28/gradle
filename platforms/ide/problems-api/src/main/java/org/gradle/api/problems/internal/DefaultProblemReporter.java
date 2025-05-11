@@ -109,7 +109,7 @@ public class DefaultProblemReporter implements ProblemReporterInternal {
     }
 
     @Override
-    public ProblemInternal internalCreate(Action<? super InternalProblemSpec> action) {
+    public ProblemInternal internalCreate(Action<? super ProblemSpecInternal> action) {
         DefaultProblemBuilder defaultProblemBuilder = createProblemBuilder();
         action.execute(defaultProblemBuilder);
         return defaultProblemBuilder.build();

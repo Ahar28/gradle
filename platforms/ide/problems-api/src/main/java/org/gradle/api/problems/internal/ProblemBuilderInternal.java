@@ -24,7 +24,7 @@ import org.gradle.api.problems.ProblemGroup;
 import org.gradle.api.problems.ProblemId;
 import org.gradle.api.problems.Severity;
 
-public interface ProblemBuilderInternal extends InternalProblemSpec {
+public interface ProblemBuilderInternal extends ProblemSpecInternal {
 
     /**
      * Creates the new problem. Calling this method won't report the problem via build operations, it can be done separately by calling {@link ProblemReporterInternal#report(Problem)}.

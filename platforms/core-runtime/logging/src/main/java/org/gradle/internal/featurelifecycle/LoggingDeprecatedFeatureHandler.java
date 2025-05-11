@@ -25,7 +25,7 @@ import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.internal.DeprecationDataSpec;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemReporterInternal;
-import org.gradle.api.problems.internal.InternalProblemSpec;
+import org.gradle.api.problems.internal.ProblemSpecInternal;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.internal.SystemProperties;
 import org.gradle.internal.deprecation.DeprecatedFeatureUsage;
@@ -95,10 +95,10 @@ public class LoggingDeprecatedFeatureHandler implements FeatureHandler<Deprecate
 
     private void reportDeprecation(final DeprecatedFeatureUsage usage, final ProblemDiagnostics diagnostics) {
         ProblemReporterInternal reporter = ((ProblemsInternal) problemsService).getInternalReporter();
-        Problem problem = reporter.internalCreate(new Action<InternalProblemSpec>() {
+        Problem problem = reporter.internalCreate(new Action<ProblemSpecInternal>() {
             @Override
-            public void execute(InternalProblemSpec builder) {
-                InternalProblemSpec problemSpec = builder
+            public void execute(ProblemSpecInternal builder) {
+                ProblemSpecInternal problemSpec = builder
                     // usage.getKind() could be part of the problem ID, however it provides hints on the problem provenance which should be modeled differently, maybe as location data.
                     .id(getDefaultDeprecationIdDisplayName(usage), usage.getProblemIdDisplayName(), GradleCoreProblemGroup.deprecation())
                     .contextualLabel(usage.getSummary())
@@ -130,7 +130,7 @@ public class LoggingDeprecatedFeatureHandler implements FeatureHandler<Deprecate
         return createDefaultDeprecationId(usage.getProblemIdDisplayName());
     }
 
-    private static void addSolution(@Nullable String advice, InternalProblemSpec problemSpec) {
+    private static void addSolution(@Nullable String advice, ProblemSpecInternal problemSpec) {
         if (advice != null) {
             problemSpec.solution(advice);
         }
