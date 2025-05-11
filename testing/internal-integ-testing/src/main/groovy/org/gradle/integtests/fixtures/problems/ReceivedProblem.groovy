@@ -27,7 +27,7 @@ import org.gradle.api.problems.ProblemId
 import org.gradle.api.problems.ProblemLocation
 import org.gradle.api.problems.Severity
 import org.gradle.api.problems.internal.InternalDocLink
-import org.gradle.api.problems.internal.InternalProblem
+import org.gradle.api.problems.internal.ProblemInternal
 import org.gradle.api.problems.internal.InternalProblemBuilder
 import org.gradle.api.problems.internal.PluginIdLocation
 import org.gradle.api.problems.internal.ProblemsInfrastructure
@@ -38,7 +38,7 @@ import org.gradle.api.problems.internal.TaskLocation
  * A deserialized representation of a problem received from the build operation trace.
  */
 @CompileStatic
-class ReceivedProblem implements InternalProblem {
+class ReceivedProblem implements ProblemInternal {
     private final long operationId
     private final ReceivedProblemDefinition definition
     private final String contextualLabel

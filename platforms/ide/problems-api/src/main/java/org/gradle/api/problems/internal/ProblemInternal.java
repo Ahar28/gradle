@@ -24,7 +24,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
-public interface InternalProblem extends Problem {
+public interface ProblemInternal extends Problem {
 
     /**
      * Returns a problem builder with fields initialized with values from this instance.

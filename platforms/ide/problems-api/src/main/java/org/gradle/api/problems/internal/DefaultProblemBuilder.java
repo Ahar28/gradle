@@ -63,7 +63,7 @@ public class DefaultProblemBuilder implements InternalProblemBuilder {
     }
 
     public DefaultProblemBuilder(
-        InternalProblem problem,
+        ProblemInternal problem,
         ProblemsInfrastructure infrastructure
     ) {
         this(infrastructure);
@@ -80,7 +80,7 @@ public class DefaultProblemBuilder implements InternalProblemBuilder {
     }
 
     @Override
-    public InternalProblem build() {
+    public ProblemInternal build() {
         // id is mandatory
         if (getId() == null) {
             return invalidProblem("missing-id", "Problem id must be specified", null);
@@ -167,7 +167,7 @@ public class DefaultProblemBuilder implements InternalProblemBuilder {
         return DefaultLineInFileLocation.from(path, line);
     }
 
-    private InternalProblem invalidProblem(String id, String displayName, @Nullable String contextualLabel) {
+    private ProblemInternal invalidProblem(String id, String displayName, @Nullable String contextualLabel) {
         id(id, displayName, ProblemGroup.create(
             "problems-api",
             "Problems API")

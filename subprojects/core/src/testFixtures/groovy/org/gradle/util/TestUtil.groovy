@@ -46,10 +46,10 @@ import org.gradle.api.problems.Problem
 import org.gradle.api.problems.ProblemReporter
 import org.gradle.api.problems.internal.DefaultProblems
 import org.gradle.api.problems.internal.ExceptionProblemRegistry
-import org.gradle.api.problems.internal.InternalProblem
 import org.gradle.api.problems.internal.InternalProblemBuilder
 import org.gradle.api.problems.internal.InternalProblemReporter
 import org.gradle.api.problems.internal.InternalProblems
+import org.gradle.api.problems.internal.ProblemInternal
 import org.gradle.api.problems.internal.ProblemSummarizer
 import org.gradle.api.problems.internal.ProblemsInfrastructure
 import org.gradle.api.provider.ProviderFactory
@@ -457,7 +457,7 @@ class TestProblemSummarizer implements ProblemSummarizer {
     List emitted = []
 
     @Override
-    void emit(InternalProblem problem, @Nullable OperationIdentifier id) {
+    void emit(ProblemInternal problem, @Nullable OperationIdentifier id) {
         emitted.add(problem)
     }
 
