@@ -20,7 +20,7 @@ import org.gradle.api.internal.GeneratedSubclasses;
 import org.gradle.api.internal.TaskInternal;
 import org.gradle.api.problems.Severity;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblems;
+import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.internal.deprecation.DeprecationLogger;
 import org.gradle.internal.execution.WorkValidationContext;
 import org.gradle.internal.execution.WorkValidationException;
@@ -41,9 +41,9 @@ import static org.gradle.internal.reflect.validation.TypeValidationProblemRender
  */
 public class DefaultNodeValidator implements NodeValidator {
 
-    private final InternalProblems problemsService;
+    private final ProblemsInternal problemsService;
 
-    public DefaultNodeValidator(InternalProblems problemsService) {
+    public DefaultNodeValidator(ProblemsInternal problemsService) {
         this.problemsService = problemsService;
     }
 

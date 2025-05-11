@@ -32,7 +32,7 @@ import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.InternalProblemReporter;
 import org.gradle.api.problems.internal.InternalProblemSpec;
-import org.gradle.api.problems.internal.InternalProblems;
+import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.internal.logging.text.TreeFormatter;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
@@ -210,8 +210,8 @@ public class TomlCatalogFileParser {
             .collect(joining("\n"));
     }
 
-    private InternalProblems getInternalProblems() {
-        return (InternalProblems) problemsServiceSupplier.get();
+    private ProblemsInternal getInternalProblems() {
+        return (ProblemsInternal) problemsServiceSupplier.get();
     }
 
     private void verifyMetadata(@Nullable TomlTable metadataTable) {

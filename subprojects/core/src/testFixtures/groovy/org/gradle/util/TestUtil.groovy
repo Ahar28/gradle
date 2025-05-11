@@ -48,10 +48,10 @@ import org.gradle.api.problems.internal.DefaultProblems
 import org.gradle.api.problems.internal.ExceptionProblemRegistry
 import org.gradle.api.problems.internal.ProblemBuilderInternal
 import org.gradle.api.problems.internal.InternalProblemReporter
-import org.gradle.api.problems.internal.InternalProblems
 import org.gradle.api.problems.internal.ProblemInternal
 import org.gradle.api.problems.internal.ProblemSummarizer
 import org.gradle.api.problems.internal.ProblemsInfrastructure
+import org.gradle.api.problems.internal.ProblemsInternal
 import org.gradle.api.provider.ProviderFactory
 import org.gradle.api.reflect.ObjectInstantiationException
 import org.gradle.api.tasks.util.internal.PatternSets
@@ -393,9 +393,9 @@ class MockInstantiator implements Instantiator {
     }
 }
 
-class TestProblems implements InternalProblems {
+class TestProblems implements ProblemsInternal {
     private final TestProblemSummarizer summarizer
-    private final InternalProblems delegate
+    private final ProblemsInternal delegate
 
     TestProblems() {
         this.summarizer = new TestProblemSummarizer()

@@ -25,7 +25,7 @@ import org.gradle.api.problems.ProblemSpec;
 import org.gradle.api.problems.Severity;
 import org.gradle.api.problems.internal.GeneralDataSpec;
 import org.gradle.api.problems.internal.InternalProblemSpec;
-import org.gradle.api.problems.internal.InternalProblems;
+import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.specs.Spec;
 import org.gradle.util.internal.NameMatcher;
 import org.jspecify.annotations.NonNull;
@@ -48,7 +48,7 @@ public class DefaultTaskSelector implements TaskSelector {
     }
 
     @Inject
-    protected InternalProblems getProblemsService() {
+    protected ProblemsInternal getProblemsService() {
         throw new UnsupportedOperationException();
     }
 

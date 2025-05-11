@@ -24,7 +24,7 @@ import org.gradle.api.problems.ProblemSpec;
 import org.gradle.api.problems.Severity;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.ProblemInternal;
-import org.gradle.api.problems.internal.InternalProblems;
+import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.tasks.WorkResult;
 import org.gradle.internal.Factory;
 import org.gradle.internal.classpath.DefaultClassPath;
@@ -52,13 +52,13 @@ public class JdkJavaCompiler implements Compiler<JavaCompileSpec>, Serializable 
 
     private final Context context;
     private final Factory<ContextAwareJavaCompiler> compilerFactory;
-    private final InternalProblems problemsService;
+    private final ProblemsInternal problemsService;
     private final DiagnosticToProblemListener diagnosticToProblemListener;
 
     @Inject
     public JdkJavaCompiler(
         Factory<ContextAwareJavaCompiler> compilerFactory,
-        InternalProblems problemsService
+        ProblemsInternal problemsService
     ) {
         this.context = new Context();
         this.compilerFactory = compilerFactory;

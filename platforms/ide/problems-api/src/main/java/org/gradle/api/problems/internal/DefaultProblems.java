@@ -28,7 +28,7 @@ import org.gradle.tooling.internal.provider.serialization.PayloadSerializer;
 import org.jspecify.annotations.NonNull;
 
 @ServiceScope(Scope.BuildTree.class)
-public class DefaultProblems implements InternalProblems {
+public class DefaultProblems implements ProblemsInternal {
 
     private final CurrentBuildOperationRef currentBuildOperationRef;
     private final ProblemSummarizer problemSummarizer;
