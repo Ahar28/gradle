@@ -32,5 +32,5 @@ public interface InternalProblems extends Problems {
 
     ProblemsInfrastructure getInfrastructure();
 
-    InternalProblemBuilder getProblemBuilder();
+    ProblemBuilderInternal getProblemBuilder();
 }

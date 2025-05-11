@@ -26,9 +26,9 @@ import org.gradle.api.problems.ProblemGroup
 import org.gradle.api.problems.ProblemId
 import org.gradle.api.problems.ProblemLocation
 import org.gradle.api.problems.Severity
-import org.gradle.api.problems.internal.InternalDocLink
+import org.gradle.api.problems.internal.DocLinkInternal
 import org.gradle.api.problems.internal.ProblemInternal
-import org.gradle.api.problems.internal.InternalProblemBuilder
+import org.gradle.api.problems.internal.ProblemBuilderInternal
 import org.gradle.api.problems.internal.PluginIdLocation
 import org.gradle.api.problems.internal.ProblemsInfrastructure
 import org.gradle.api.problems.internal.StackTraceLocation
@@ -213,7 +213,7 @@ class ReceivedProblem implements ProblemInternal {
     }
 
     @Override
-    InternalProblemBuilder toBuilder(ProblemsInfrastructure infrastructure) {
+    ProblemBuilderInternal toBuilder(ProblemsInfrastructure infrastructure) {
         throw new UnsupportedOperationException("Not implemented")
     }
 
@@ -314,7 +314,7 @@ class ReceivedProblem implements ProblemInternal {
         }
     }
 
-    static class ReceivedDocumentationLink implements InternalDocLink {
+    static class ReceivedDocumentationLink implements DocLinkInternal {
         private final String url
         private final String consultDocumentationMessage
 

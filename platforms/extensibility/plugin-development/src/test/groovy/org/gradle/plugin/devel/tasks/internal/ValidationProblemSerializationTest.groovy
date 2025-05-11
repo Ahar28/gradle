@@ -27,7 +27,7 @@ import org.gradle.api.problems.internal.ExceptionProblemRegistry
 import org.gradle.api.problems.internal.GeneralData
 import org.gradle.api.problems.internal.GeneralDataSpec
 import org.gradle.api.problems.internal.GradleCoreProblemGroup
-import org.gradle.api.problems.internal.InternalDocLink
+import org.gradle.api.problems.internal.DocLinkInternal
 import org.gradle.api.problems.internal.InternalProblemReporter
 import org.gradle.api.problems.internal.IsolatableToBytesSerializer
 import org.gradle.api.problems.internal.ProblemSummarizer
@@ -130,7 +130,7 @@ class ValidationProblemSerializationTest extends Specification {
      * Required to be a named, static class for serialization to work.
      * See https://google.github.io/gson/UserGuide.html#nested-classes-including-inner-classes
      */
-    class TestDocLink implements InternalDocLink {
+    class TestDocLink implements DocLinkInternal {
 
         @Override
         String getUrl() {

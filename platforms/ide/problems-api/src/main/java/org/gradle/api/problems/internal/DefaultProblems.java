@@ -80,7 +80,7 @@ public class DefaultProblems implements InternalProblems {
         return infrastructure;
     }
     @Override
-    public InternalProblemBuilder getProblemBuilder() {
+    public ProblemBuilderInternal getProblemBuilder() {
         return new DefaultProblemBuilder(infrastructure);
     }
 }

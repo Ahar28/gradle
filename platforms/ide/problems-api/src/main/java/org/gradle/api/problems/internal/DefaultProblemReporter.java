@@ -158,7 +158,7 @@ public class DefaultProblemReporter implements InternalProblemReporter {
     }
 
     @NonNull
-    private InternalProblemBuilder getBuilder(Problem problem) {
+    private ProblemBuilderInternal getBuilder(Problem problem) {
         return ((ProblemInternal) problem).toBuilder(infrastructure);
     }
 

@@ -157,7 +157,7 @@ public class DefaultProblemProgressDetails implements ProblemProgressDetails, Pr
         @Nullable
         @Override
         public DocumentationLink getDocumentationLink() {
-            InternalDocLink documentationLink = (InternalDocLink) definition.getDocumentationLink();
+            DocLinkInternal documentationLink = (DocLinkInternal) definition.getDocumentationLink();
             return documentationLink == null ? null : new DevelocityDocumentationLink(documentationLink);
         }
 
@@ -187,9 +187,9 @@ public class DefaultProblemProgressDetails implements ProblemProgressDetails, Pr
         }
 
         private static class DevelocityDocumentationLink implements DocumentationLink {
-            private final InternalDocLink documentationLink;
+            private final DocLinkInternal documentationLink;
 
-            public DevelocityDocumentationLink(InternalDocLink documentationLink) {
+            public DevelocityDocumentationLink(DocLinkInternal documentationLink) {
                 this.documentationLink = documentationLink;
             }
 

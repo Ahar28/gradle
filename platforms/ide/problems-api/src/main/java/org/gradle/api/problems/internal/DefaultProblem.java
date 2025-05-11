@@ -104,7 +104,7 @@ public class DefaultProblem implements Serializable, ProblemInternal {
     }
 
     @Override
-    public InternalProblemBuilder toBuilder(ProblemsInfrastructure infrastructure) {
+    public ProblemBuilderInternal toBuilder(ProblemsInfrastructure infrastructure) {
         return new DefaultProblemBuilder(this, infrastructure);
     }
 
