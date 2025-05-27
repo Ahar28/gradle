@@ -32,8 +32,8 @@ import static java.util.Collections.emptyMap;
 import static org.gradle.util.internal.WrapUtil.toList;
 import static org.gradle.util.internal.WrapUtil.toMap;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
@@ -49,7 +49,7 @@ public class ConventionAwareHelperTest {
     @Before
     public void setUp() {
         testTask = TestUtil.create(temporaryFolder).task(TestTask.class);
-        conventionAware = new ConventionAwareHelper(testTask, new DefaultConvention(TestUtil.instantiatorFactory().decorateLenient()));
+        conventionAware = new ConventionAwareHelper(testTask);
     }
 
     @Test

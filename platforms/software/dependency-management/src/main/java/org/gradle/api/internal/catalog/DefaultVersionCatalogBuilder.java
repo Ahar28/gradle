@@ -19,7 +19,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Interner;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.gradle.api.Action;
 import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.artifacts.Dependency;
@@ -47,6 +47,7 @@ import org.gradle.api.problems.internal.ProblemSpecInternal;
 import org.gradle.api.problems.internal.ProblemsInternal;
 import org.gradle.api.provider.Property;
 import org.gradle.internal.FileUtils;
+import org.gradle.internal.UncheckedException;
 import org.gradle.internal.classpath.Instrumented;
 import org.gradle.internal.lazy.Lazy;
 import org.gradle.internal.management.VersionCatalogBuilderInternal;
@@ -57,7 +58,6 @@ import org.jspecify.annotations.Nullable;
 import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -310,7 +310,7 @@ public abstract class DefaultVersionCatalogBuilder implements VersionCatalogBuil
         try {
             TomlCatalogFileParser.parse(modelFile.toPath(), this, this::getProblemsService);
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw UncheckedException.throwAsUncheckedException(e);
         }
     }
 

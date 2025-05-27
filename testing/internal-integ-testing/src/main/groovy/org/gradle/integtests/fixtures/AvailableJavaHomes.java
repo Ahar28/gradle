@@ -129,28 +129,7 @@ public abstract class AvailableJavaHomes {
      * Get a JDK for each major Java version installed on this machine.
      */
     public static List<Jvm> getAllJdkVersions() {
-        return getJdksInRange(Range.atLeast(0));
-    }
-
-    /**
-     * Get a JDK for each major Java version that is not able to run the Gradle wrapper, if available.
-     */
-    public static List<Jvm> getUnsupportedWrapperJdks() {
-        return getJdksInRange(Range.lessThan(SupportedJavaVersions.MINIMUM_WRAPPER_JAVA_VERSION));
-    }
-
-    /**
-     * Get a JDK for each major Java version that is able to run the Gradle wrapper, if available.
-     */
-    public static List<Jvm> getSupportedWrapperJdks() {
-        return getJdksInRange(Range.atLeast(SupportedJavaVersions.MINIMUM_WRAPPER_JAVA_VERSION));
-    }
-
-    /**
-     * Get a JDK for each major Java version that is not able to run a Gradle client, if available.
-     */
-    public static List<Jvm> getUnsupportedClientJdks() {
-        return getJdksInRange(Range.lessThan(SupportedJavaVersions.MINIMUM_CLIENT_JAVA_VERSION));
+        return getJdksInRange(Range.all());
     }
 
     /**
@@ -178,7 +157,7 @@ public abstract class AvailableJavaHomes {
      * Get a JDK for each major Java version that is not able to run the Gradle daemon, if available.
      */
     public static List<Jvm> getUnsupportedDaemonJdks() {
-        return getJdksInRange(Range.lessThan(SupportedJavaVersions.MINIMUM_DAEMON_JAVA_VERSION));
+        return getJdksInRange(Range.closedOpen(SupportedJavaVersions.MINIMUM_CLIENT_JAVA_VERSION, SupportedJavaVersions.MINIMUM_DAEMON_JAVA_VERSION));
     }
 
     /**
@@ -236,6 +215,19 @@ public abstract class AvailableJavaHomes {
     @Nullable
     public static Jvm getJdk(final JavaVersion version) {
         return Iterables.getFirst(getAvailableJdks(version), null);
+    }
+
+    /**
+     * Return any JDK installation that falls within the given JVM version range.
+     */
+    @Nullable
+    public static Jvm getJdkInRange(Range<Integer> range) {
+        return getAvailableJvmMetadatas().stream()
+            .filter(input -> input.getCapabilities().containsAll(JavaInstallationCapability.JDK_CAPABILITIES))
+            .filter(element -> range.contains(element.getJavaMajorVersion()))
+            .map(AvailableJavaHomes::jvmFromMetadata)
+            .findFirst()
+            .orElse(null);
     }
 
     /**
@@ -308,7 +300,7 @@ public abstract class AvailableJavaHomes {
     }
 
     private static boolean isSupportedDaemonVersion(JvmInstallationMetadata jvmInstallation) {
-        return DISTRIBUTION.worksWith(jvmFromMetadata(jvmInstallation));
+        return DISTRIBUTION.daemonWorksWith(jvmFromMetadata(jvmInstallation).getJavaVersionMajor());
     }
 
     /**
@@ -341,6 +333,17 @@ public abstract class AvailableJavaHomes {
     @Nullable
     public static Jvm getDifferentVersion(final Spec<? super JvmInstallationMetadata> filter) {
         return getSupportedJdk(element -> !element.getLanguageVersion().equals(Jvm.current().getJavaVersion()) && filter.isSatisfiedBy(element));
+    }
+
+    /**
+     * Get a JDK with a different version than the current JDK, which can
+     * execute the daemon for the given distribution.
+     */
+    @Nullable
+    public static Jvm getDifferentDaemonVersionFor(GradleDistribution distribution) {
+        return getDifferentVersion(
+            metadata -> distribution.daemonWorksWith(metadata.getJavaMajorVersion())
+        );
     }
 
     /**

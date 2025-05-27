@@ -15,13 +15,6 @@ pluginManagement {
                 includeVersionByRegex("com.gradle", "develocity-gradle-plugin", rcAndMilestonesPattern)
             }
         }
-        maven {
-            name = "Gradle public repository"
-            url = uri("https://repo.gradle.org/gradle/public")
-            content {
-                includeModule("org.openmbee.junit", "junit-xml-parser")
-            }
-        }
         gradlePluginPortal()
     }
     includeBuild("build-logic-settings")
@@ -29,8 +22,6 @@ pluginManagement {
 
 buildscript {
     dependencies {
-        // update Gson to the desired version, needed here as org.gradle.toolchains.foojay-resolver-convention brings in an older version below
-        // https://github.com/gradle/foojay-toolchains/issues/99
         classpath("com.google.code.gson:gson:2.13.1") // keep in sync with build-logic-commons/build-platform/build.gradle.kts
     }
 }
@@ -40,7 +31,7 @@ plugins {
     id("gradlebuild.configuration-cache-compatibility")
     id("com.gradle.develocity").version("4.0.1") // Run `java build-logic-settings/UpdateDevelocityPluginVersion.java <new-version>` to update
     id("io.github.gradle.gradle-enterprise-conventions-plugin").version("0.10.2")
-    id("org.gradle.toolchains.foojay-resolver-convention").version("0.10.0")
+    id("org.gradle.toolchains.foojay-resolver-convention").version("1.0.0")
 }
 
 includeBuild("build-logic-commons")
@@ -72,7 +63,6 @@ val core = platform("core") {
         subproject("build-operations-trace")
         subproject("build-option")
         subproject("build-process-services")
-        subproject("build-process-startup")
         subproject("build-profile")
         subproject("build-state")
         subproject("classloaders")

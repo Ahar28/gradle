@@ -120,7 +120,6 @@ dependencies {
     api(libs.nativePlatform)
 
     implementation(projects.buildOperationsTrace)
-    implementation(projects.buildProcessStartup)
     implementation(projects.io)
     implementation(projects.inputTracking)
     implementation(projects.modelGroovy)
@@ -131,7 +130,6 @@ dependencies {
     implementation(libs.commonsCompress)
     implementation(libs.commonsIo)
     implementation(libs.commonsLang)
-    implementation(libs.commonsLang3)
     implementation(libs.errorProneAnnotations)
     implementation(libs.fastutil)
     implementation(libs.groovyAnt)
@@ -150,12 +148,10 @@ dependencies {
 
     // Libraries that are not used in this project but required in the distribution
     runtimeOnly(libs.groovyAstbuilder)
-    runtimeOnly(libs.groovyConsole)
     runtimeOnly(libs.groovyDateUtil)
     runtimeOnly(libs.groovyDatetime)
     runtimeOnly(libs.groovyDoc)
     runtimeOnly(libs.groovyNio)
-    runtimeOnly(libs.groovySql)
 
     testImplementation(projects.buildInit)
     testImplementation(projects.platformJvm)
