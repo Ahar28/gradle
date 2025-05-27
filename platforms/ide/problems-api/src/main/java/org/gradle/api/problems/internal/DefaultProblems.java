@@ -32,7 +32,7 @@ public class DefaultProblems implements ProblemsInternal {
 
     private final CurrentBuildOperationRef currentBuildOperationRef;
     private final ProblemSummarizer problemSummarizer;
-    private final ProblemReporterInternal internalReporter;
+    private final ProblemReporterInternal reporterInternal;
     private final ExceptionProblemRegistry exceptionProblemRegistry;
     private final ExceptionAnalyser exceptionAnalyser;
     private final ProblemsInfrastructure infrastructure;
@@ -53,7 +53,7 @@ public class DefaultProblems implements ProblemsInternal {
         this.exceptionProblemRegistry = exceptionProblemRegistry;
         this.exceptionAnalyser = exceptionAnalyser;
         this.infrastructure = new ProblemsInfrastructure(new AdditionalDataBuilderFactory(), instantiator, payloadSerializer, isolatableFactory, isolatableSerializer, problemStream);
-        this.internalReporter = createReporter();
+        this.reporterInternal = createReporter();
     }
 
     @Override
@@ -72,7 +72,7 @@ public class DefaultProblems implements ProblemsInternal {
 
     @Override
     public ProblemReporterInternal getInternalReporter() {
-        return internalReporter;
+        return reporterInternal;
     }
 
     @Override
