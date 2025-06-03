@@ -2,86 +2,86 @@
   "scenario" : "org.gradle.performance.experiment.declarativedsl.DeclarativeDslFirstUsePerformanceTest.clean checkout",
   "durations" : [ {
     "testProject" : "largeEmptyMultiProjectDeclarativeDsl",
-    "linux" : 461
+    "linux" : 459
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.declarativedsl.DeclarativeDslFirstUsePerformanceTest.cold daemon",
   "durations" : [ {
     "testProject" : "largeEmptyMultiProjectDeclarativeDsl",
-    "linux" : 470
+    "linux" : 467
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.declarativedsl.DeclarativeDslFirstUsePerformanceTest.first use",
   "durations" : [ {
     "testProject" : "largeEmptyMultiProjectDeclarativeDsl",
-    "linux" : 1242
+    "linux" : 1167
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.AndroidIncrementalExecutionPerformanceTest.abi change",
   "durations" : [ {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 368,
-    "windows" : 422,
-    "macOs" : 307
+    "linux" : 381,
+    "windows" : 436,
+    "macOs" : 273
   }, {
     "testProject" : "santaTrackerAndroidBuild",
-    "linux" : 740,
-    "windows" : 1051,
-    "macOs" : 606
+    "linux" : 778,
+    "windows" : 1116,
+    "macOs" : 580
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.AndroidIncrementalExecutionPerformanceTest.abi change with configuration caching",
   "durations" : [ {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 371,
-    "windows" : 431,
-    "macOs" : 347
+    "linux" : 399,
+    "windows" : 445,
+    "macOs" : 349
   }, {
     "testProject" : "santaTrackerAndroidBuild",
-    "linux" : 706,
-    "windows" : 792,
-    "macOs" : 595
+    "linux" : 739,
+    "windows" : 822,
+    "macOs" : 557
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.AndroidIncrementalExecutionPerformanceTest.non-abi change",
   "durations" : [ {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 347,
+    "linux" : 353,
     "windows" : 434,
-    "macOs" : 272
+    "macOs" : 270
   }, {
     "testProject" : "santaTrackerAndroidBuild",
-    "linux" : 625,
-    "windows" : 847,
-    "macOs" : 469
+    "linux" : 634,
+    "windows" : 916,
+    "macOs" : 453
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.AndroidIncrementalExecutionPerformanceTest.non-abi change with configuration caching",
   "durations" : [ {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 330,
-    "windows" : 443,
-    "macOs" : 277
+    "linux" : 342,
+    "windows" : 467,
+    "macOs" : 271
   }, {
     "testProject" : "santaTrackerAndroidBuild",
-    "linux" : 411,
-    "windows" : 797,
-    "macOs" : 428
+    "linux" : 412,
+    "windows" : 782,
+    "macOs" : 406
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidBuildPerformanceTest.calculate task graph with test finalizer",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 514
+    "linux" : 523
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidBuildPerformanceTest.clean assembleDebug with clean transforms cache",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 1652
+    "linux" : 1692
   }, {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 4387
+    "linux" : 4731
   }, {
     "testProject" : "santaTrackerAndroidBuild",
     "linux" : 2237
@@ -90,325 +90,325 @@
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidBuildPerformanceTest.clean phthalic:assembleDebug with clean transforms cache",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 1355
+    "linux" : 1419
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidBuildPerformanceTest.run assembleDebug",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 926
+    "linux" : 1001
   }, {
     "testProject" : "nowInAndroidBuild",
     "linux" : 844
   }, {
     "testProject" : "santaTrackerAndroidBuild",
-    "linux" : 509
+    "linux" : 525
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidBuildPerformanceTest.run clean phthalic:assembleDebug",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 404
+    "linux" : 412
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidBuildPerformanceTest.run help",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 364
+    "linux" : 387
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.android.RealLifeAndroidStudioPerformanceTest.run Android Studio sync",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 1059
+    "linux" : 1028
   }, {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 1030
+    "linux" : 1083
   }, {
     "testProject" : "santaTrackerAndroidBuild",
-    "linux" : 629
+    "linux" : 700
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble for abi change with local cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 953
+    "linux" : 1037
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble for non-abi change with local cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 905
+    "linux" : 952
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble with empty local cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 1114
+    "linux" : 1125
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1256
+    "linux" : 1288
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble with empty remote http cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 1179
+    "linux" : 1209
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1260
+    "linux" : 1256
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble with local cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 906
+    "linux" : 951
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1373
+    "linux" : 1470
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble with remote http cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 766
+    "linux" : 775
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 592
+    "linux" : 613
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean assemble with remote https cache",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 766
+    "linux" : 765
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 615
+    "linux" : 636
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingJavaPerformanceTest.clean check on ephemeral ci with remote http cache",
   "durations" : [ {
     "testProject" : "smallJavaMultiProjectManyExternalDependencies",
-    "linux" : 579
+    "linux" : 583
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingNativePerformanceTest.clean assemble with local cache (native project)",
   "durations" : [ {
     "testProject" : "bigCppApp",
-    "linux" : 263
+    "linux" : 262
   }, {
     "testProject" : "bigCppMulti",
-    "linux" : 554
+    "linux" : 564
   }, {
     "testProject" : "bigNative",
-    "linux" : 246
+    "linux" : 249
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.buildcache.TaskOutputCachingSwiftPerformanceTest.clean assemble with local cache (swift)",
   "durations" : [ {
     "testProject" : "bigSwiftApp",
-    "linux" : 397
+    "linux" : 407
   }, {
     "testProject" : "mediumSwiftMulti",
-    "linux" : 668
+    "linux" : 673
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ArchiveTreePerformanceTest.compressing tar",
   "durations" : [ {
     "testProject" : "archivePerformanceProject",
-    "linux" : 170
+    "linux" : 171
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ArchiveTreePerformanceTest.compressing zip",
   "durations" : [ {
     "testProject" : "archivePerformanceProject",
-    "linux" : 174
+    "linux" : 169
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ArchiveTreePerformanceTest.packing tar",
   "durations" : [ {
     "testProject" : "archivePerformanceProject",
-    "linux" : 167
+    "linux" : 162
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ArchiveTreePerformanceTest.visiting gzip tar trees",
   "durations" : [ {
     "testProject" : "archivePerformanceProject",
-    "linux" : 311
+    "linux" : 305
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ArchiveTreePerformanceTest.visiting tar trees",
   "durations" : [ {
     "testProject" : "archivePerformanceProject",
-    "linux" : 367
+    "linux" : 393
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ArchiveTreePerformanceTest.visiting zip trees",
   "durations" : [ {
     "testProject" : "archivePerformanceProject",
-    "linux" : 694
+    "linux" : 722
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.DeprecationCreationPerformanceTest.create many deprecation warnings",
   "durations" : [ {
     "testProject" : "generateLotsOfDeprecationWarnings",
-    "linux" : 124
+    "linux" : 127
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ExcludeRuleMergingPerformanceTest.merge exclude rules",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 294
+    "linux" : 295
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ExcludeRuleMergingPerformanceTest.merge exclude rules (parallel)",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 231
+    "linux" : 232
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.IdeIntegrationPerformanceTest.eclipse",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 543
+    "linux" : 558
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 214
+    "linux" : 220
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.IdeIntegrationPerformanceTest.idea",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 522
+    "linux" : 544
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 212
+    "linux" : 217
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.LargeDependencyGraphPerformanceTest.resolve large dependency graph (parallel = false, locking = false)",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 219
+    "linux" : 220
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.LargeDependencyGraphPerformanceTest.resolve large dependency graph (parallel = false, locking = true)",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 223
+    "linux" : 224
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.LargeDependencyGraphPerformanceTest.resolve large dependency graph (parallel = true, locking = false)",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 223
+    "linux" : 224
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.LargeDependencyGraphPerformanceTest.resolve large dependency graph (parallel = true, locking = true)",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 227
+    "linux" : 228
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.LargeDependencyGraphPerformanceTest.resolve large dependency graph from file repo",
   "durations" : [ {
     "testProject" : "excludeRuleMergingBuild",
-    "linux" : 434
+    "linux" : 443
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ParallelDownloadsPerformanceTest.resolves dependencies from external repository",
   "durations" : [ {
     "testProject" : "springBootApp",
-    "linux" : 544
+    "linux" : 877
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.ParallelDownloadsPerformanceTest.resolves dependencies from external repository (parallel)",
   "durations" : [ {
     "testProject" : "springBootApp",
-    "linux" : 350
+    "linux" : 554
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.RichConsolePerformanceTest.clean assemble with rich console",
   "durations" : [ {
     "testProject" : "bigNative",
-    "linux" : 160
+    "linux" : 162
   }, {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 788
+    "linux" : 796
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1215
+    "linux" : 1218
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.RichConsolePerformanceTest.cleanTest test with rich console",
   "durations" : [ {
     "testProject" : "withVerboseJUnit",
-    "linux" : 70
+    "linux" : 71
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.TaskCreationPerformanceTest.create many tasks",
   "durations" : [ {
     "testProject" : "createLotsOfTasks",
-    "linux" : 186
+    "linux" : 201
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.VerboseTestOutputPerformanceTest.cleanTest test with verbose test output",
   "durations" : [ {
     "testProject" : "withVerboseJUnit",
-    "linux" : 210
+    "linux" : 211
   }, {
     "testProject" : "withVerboseTestNG",
-    "linux" : 194
+    "linux" : 198
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.inception.BuildSrcApiChangePerformanceTest.buildSrc abi change",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 652
+    "linux" : 673
   }, {
     "testProject" : "largeJavaMultiProjectKotlinDsl",
-    "linux" : 1005
+    "linux" : 960
   }, {
     "testProject" : "mediumMonolithicJavaProject",
-    "linux" : 263
+    "linux" : 265
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.inception.BuildSrcApiChangePerformanceTest.buildSrc non-abi change",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 653
+    "linux" : 672
   }, {
     "testProject" : "largeJavaMultiProjectKotlinDsl",
-    "linux" : 363
+    "linux" : 354
   }, {
     "testProject" : "mediumMonolithicJavaProject",
-    "linux" : 261
+    "linux" : 263
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaCleanAssemblePerformanceTest.clean assemble",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 547
+    "linux" : 555
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 767
+    "linux" : 783
   }, {
     "testProject" : "mediumJavaCompositeBuild",
-    "linux" : 353
+    "linux" : 357
   }, {
     "testProject" : "mediumJavaPredefinedCompositeBuild",
-    "linux" : 347
+    "linux" : 354
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaConfigurationCachePerformanceTest.assemble loading configuration cache state with cold daemon",
   "durations" : [ {
     "testProject" : "largeJavaMultiProjectNoBuildSrc",
-    "linux" : 678
+    "linux" : 692
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaConfigurationCachePerformanceTest.assemble loading configuration cache state with hot daemon",
   "durations" : [ {
     "testProject" : "largeJavaMultiProjectNoBuildSrc",
-    "linux" : 748
+    "linux" : 770
   }, {
     "testProject" : "smallJavaMultiProject",
     "linux" : 233
@@ -417,13 +417,13 @@
   "scenario" : "org.gradle.performance.regression.java.JavaConfigurationCachePerformanceTest.assemble storing configuration cache state with cold daemon",
   "durations" : [ {
     "testProject" : "largeJavaMultiProjectNoBuildSrc",
-    "linux" : 699
+    "linux" : 702
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaConfigurationCachePerformanceTest.assemble storing configuration cache state with hot daemon",
   "durations" : [ {
     "testProject" : "largeJavaMultiProjectNoBuildSrc",
-    "linux" : 708
+    "linux" : 687
   }, {
     "testProject" : "smallJavaMultiProject",
     "linux" : 236
@@ -432,178 +432,189 @@
   "scenario" : "org.gradle.performance.regression.java.JavaConfigurationPerformanceTest.configure",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 424
+    "linux" : 446
   }, {
     "testProject" : "largeJavaMultiProjectKotlinDsl",
-    "linux" : 567
+    "linux" : 581
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 212
+    "linux" : 216
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaDependencyReportPerformanceTest.generate dependency report",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 454
+    "linux" : 459
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 217
+    "linux" : 222
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaFirstUsePerformanceTest.clean checkout",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 1621
+    "linux" : 1701
   }, {
     "testProject" : "largeJavaMultiProjectKotlinDsl",
-    "linux" : 1479
+    "linux" : 1395
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 664
+    "linux" : 676
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaFirstUsePerformanceTest.cold daemon",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 1544
+    "linux" : 1622
   }, {
     "testProject" : "largeJavaMultiProjectKotlinDsl",
-    "linux" : 1386
+    "linux" : 1382
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 630
+    "linux" : 625
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaFirstUsePerformanceTest.first use",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 964
+    "linux" : 963
   }, {
     "testProject" : "largeJavaMultiProjectKotlinDsl",
-    "linux" : 950
+    "linux" : 958
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 578
+    "linux" : 575
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIDEModelPerformanceTest.get IDE model for Eclipse",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 1101
+    "linux" : 1074
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIDEModelPerformanceTest.get IDE model for IDEA",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 1013
+    "linux" : 1020
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIDETaskExecutionPerformanceTest.run compileJava via Tooling API",
   "durations" : [ {
     "testProject" : "largeAndroidBuild",
-    "linux" : 904
+    "linux" : 985
   }, {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 928
+    "linux" : 1008
   }, {
     "testProject" : "largeJavaMultiProjectHierarchy",
-    "linux" : 859
+    "linux" : 909
   }, {
     "testProject" : "nowInAndroidBuild",
-    "linux" : 354
+    "linux" : 346
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.assemble for abi change",
   "durations" : [ {
     "testProject" : "largeGroovyMultiProject",
-    "linux" : 736
+    "linux" : 757
   }, {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 582,
-    "windows" : 991,
-    "macOs" : 325
+    "linux" : 568,
+    "windows" : 978,
+    "macOs" : 274
   }, {
     "testProject" : "largeMonolithicGroovyProject",
-    "linux" : 2216
+    "linux" : 2269
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1495
+    "linux" : 1540
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.assemble for abi change with configuration caching",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 313,
-    "windows" : 782,
-    "macOs" : 253
+    "linux" : 335,
+    "windows" : 800,
+    "macOs" : 226
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.assemble for non-abi change",
   "durations" : [ {
     "testProject" : "largeGroovyMultiProject",
-    "linux" : 700
+    "linux" : 720
   }, {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 519,
-    "windows" : 974,
-    "macOs" : 297
+    "linux" : 525,
+    "windows" : 979,
+    "macOs" : 267
   }, {
     "testProject" : "largeMonolithicGroovyProject",
-    "linux" : 2191
+    "linux" : 2341
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1392
+    "linux" : 1407
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.assemble for non-abi change with configuration caching",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 311,
-    "windows" : 711,
-    "macOs" : 240
+    "linux" : 317,
+    "windows" : 712,
+    "macOs" : 222
+  } ]
+}, {
+  "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.assemble for non-abi change with reproducible archives",
+  "durations" : [ {
+    "testProject" : "largeJavaMultiProject",
+    "linux" : 520,
+    "windows" : 952,
+    "macOs" : 237
+  }, {
+    "testProject" : "largeMonolithicJavaProject",
+    "linux" : 1590
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.test for non-abi change",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 525
+    "linux" : 540
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 1287
+    "linux" : 1320
   }, {
     "testProject" : "mediumJavaMultiProjectWithTestNG",
-    "linux" : 241
+    "linux" : 242
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.up-to-date assemble (parallel false)",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 654
+    "linux" : 664
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 293
+    "linux" : 294
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.up-to-date assemble (parallel true)",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 515,
-    "windows" : 991
+    "linux" : 521,
+    "windows" : 976
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.up-to-date assemble with local build cache enabled (parallel false)",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 651
+    "linux" : 672
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 282
+    "linux" : 289
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaIncrementalExecutionPerformanceTest.up-to-date assemble with local build cache enabled (parallel true)",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 516
+    "linux" : 522
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaTasksPerformanceTest.tasks",
@@ -612,40 +623,40 @@
     "linux" : 488
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 208
+    "linux" : 217
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.java.JavaTasksPerformanceTest.tasks --all",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 557
+    "linux" : 565
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 209
+    "linux" : 212
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeBuildDependentsPerformanceTest.run libA0:buildDependentsLibA0",
   "durations" : [ {
     "testProject" : "nativeDependents",
-    "linux" : 787
+    "linux" : 790
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeBuildDependentsPerformanceTest.run libA0:buildDependentsLibA00",
   "durations" : [ {
     "testProject" : "nativeDependents",
-    "linux" : 860
+    "linux" : 865
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeBuildDependentsPerformanceTest.run libA0:dependentComponents",
   "durations" : [ {
     "testProject" : "nativeDependents",
-    "linux" : 797
+    "linux" : 802
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeBuildPerformanceTest.assemble with header file change",
   "durations" : [ {
     "testProject" : "bigCppApp",
-    "linux" : 321
+    "linux" : 319
   }, {
     "testProject" : "bigCppMulti",
     "linux" : 268
@@ -654,16 +665,16 @@
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeBuildPerformanceTest.assemble with source file change",
   "durations" : [ {
     "testProject" : "bigCppApp",
-    "linux" : 179
+    "linux" : 183
   }, {
     "testProject" : "bigCppMulti",
-    "linux" : 265
+    "linux" : 266
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeBuildPerformanceTest.up-to-date assemble (native)",
   "durations" : [ {
     "testProject" : "bigCppApp",
-    "linux" : 138
+    "linux" : 136
   }, {
     "testProject" : "bigCppMulti",
     "linux" : 268
@@ -672,198 +683,198 @@
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeCleanBuildPerformanceTest.clean assemble (native, parallel)",
   "durations" : [ {
     "testProject" : "manyProjectsNative",
-    "linux" : 633
+    "linux" : 649
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.NativeCleanBuildPerformanceTest.clean assemble (native)",
   "durations" : [ {
     "testProject" : "bigCppApp",
-    "linux" : 524
+    "linux" : 505
   }, {
     "testProject" : "bigCppMulti",
-    "linux" : 1519
+    "linux" : 1545
   }, {
     "testProject" : "bigNative",
-    "linux" : 644
+    "linux" : 649
   }, {
     "testProject" : "mediumCppApp",
-    "linux" : 235
+    "linux" : 240
   }, {
     "testProject" : "mediumCppAppWithMacroIncludes",
-    "linux" : 239
+    "linux" : 240
   }, {
     "testProject" : "mediumCppMulti",
-    "linux" : 507
+    "linux" : 504
   }, {
     "testProject" : "mediumCppMultiWithMacroIncludes",
-    "linux" : 494
+    "linux" : 491
   }, {
     "testProject" : "mediumNative",
-    "linux" : 260
+    "linux" : 261
   }, {
     "testProject" : "multiNative",
-    "linux" : 1684
+    "linux" : 1693
   }, {
     "testProject" : "smallCppApp",
     "linux" : 329
   }, {
     "testProject" : "smallCppMulti",
-    "linux" : 339
+    "linux" : 341
   }, {
     "testProject" : "smallNative",
-    "linux" : 321
+    "linux" : 328
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.RealWorldNativePluginPerformanceTest.build with 0 parallel workers",
   "durations" : [ {
     "testProject" : "nativeMonolithic",
-    "linux" : 1203
+    "linux" : 1262
   }, {
     "testProject" : "nativeMonolithicOverlapping",
-    "linux" : 1218
+    "linux" : 1229
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.RealWorldNativePluginPerformanceTest.build with 12 parallel workers",
   "durations" : [ {
     "testProject" : "nativeMonolithic",
-    "linux" : 590
+    "linux" : 603
   }, {
     "testProject" : "nativeMonolithicOverlapping",
-    "linux" : 580
+    "linux" : 593
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.RealWorldNativePluginPerformanceTest.build with build file change",
   "durations" : [ {
     "testProject" : "smallNativeMonolithic",
-    "linux" : 515
+    "linux" : 522
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.RealWorldNativePluginPerformanceTest.build with header file change",
   "durations" : [ {
     "testProject" : "mediumNativeMonolithic",
-    "linux" : 322
+    "linux" : 318
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.RealWorldNativePluginPerformanceTest.build with source file change",
   "durations" : [ {
     "testProject" : "mediumNativeMonolithic",
-    "linux" : 319
+    "linux" : 316
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.SwiftBuildPerformanceTest.incremental compile",
   "durations" : [ {
     "testProject" : "bigSwiftApp",
-    "linux" : 303
+    "linux" : 293
   }, {
     "testProject" : "mediumSwiftMulti",
-    "linux" : 1265
+    "linux" : 1295
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.SwiftBuildPerformanceTest.up-to-date assemble (swift)",
   "durations" : [ {
     "testProject" : "bigSwiftApp",
-    "linux" : 171
+    "linux" : 170
   }, {
     "testProject" : "mediumSwiftMulti",
-    "linux" : 254
+    "linux" : 255
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.nativeplatform.SwiftCleanBuildPerformanceTest.clean assemble (swift)",
   "durations" : [ {
     "testProject" : "bigSwiftApp",
-    "linux" : 2552
+    "linux" : 2468
   }, {
     "testProject" : "mediumSwiftMulti",
-    "linux" : 3227
+    "linux" : 3305
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.buildcache.LocalTaskOutputCacheCrossBuildPerformanceTest.assemble with local cache (build comparison)",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 783
+    "linux" : 796
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 980
+    "linux" : 1014
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.java.ParallelBuildPerformanceTest.clean assemble with 4 parallel workers",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 514
+    "linux" : 543
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 500
+    "linux" : 531
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.maven.JavaTestGradleVsMavenPerformanceTest.assemble for non-abi change (Gradle vs Maven)",
   "durations" : [ {
     "testProject" : "mediumJavaMultiProject",
-    "linux" : 90
+    "linux" : 92
   }, {
     "testProject" : "mediumMonolithicJavaProject",
-    "linux" : 93
+    "linux" : 95
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.maven.JavaTestGradleVsMavenPerformanceTest.clean assemble (Gradle vs Maven)",
   "durations" : [ {
     "testProject" : "mediumJavaMultiProject",
-    "linux" : 118
+    "linux" : 121
   }, {
     "testProject" : "mediumMonolithicJavaProject",
-    "linux" : 110
+    "linux" : 113
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.maven.JavaTestGradleVsMavenPerformanceTest.clean test (Gradle vs Maven)",
   "durations" : [ {
     "testProject" : "mediumJavaMultiProject",
-    "linux" : 306
+    "linux" : 309
   }, {
     "testProject" : "mediumMonolithicJavaProject",
-    "linux" : 256
+    "linux" : 253
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.maven.JavaTestGradleVsMavenPerformanceTest.test for non-abi change (Gradle vs Maven)",
   "durations" : [ {
     "testProject" : "mediumJavaMultiProject",
-    "linux" : 133
+    "linux" : 135
   }, {
     "testProject" : "mediumMonolithicJavaProject",
-    "linux" : 239
+    "linux" : 236
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.nativeplatform.NativeParallelPerformanceTest.clean assemble with parallel workers",
   "durations" : [ {
     "testProject" : "bigNative",
-    "linux" : 570
+    "linux" : 579
   }, {
     "testProject" : "mediumNative",
-    "linux" : 199
+    "linux" : 202
   }, {
     "testProject" : "multiNative",
-    "linux" : 1360
+    "linux" : 1382
   }, {
     "testProject" : "smallNative",
-    "linux" : 140
+    "linux" : 141
   } ]
 }, {
   "scenario" : "org.gradle.performance.experiment.nativeplatform.NativePreCompiledHeaderPerformanceTest.clean assemble with precompiled headers",
   "durations" : [ {
     "testProject" : "bigPCHNative",
-    "linux" : 971
+    "linux" : 986
   }, {
     "testProject" : "mediumPCHNative",
-    "linux" : 295
+    "linux" : 299
   }, {
     "testProject" : "smallPCHNative",
-    "linux" : 150
+    "linux" : 153
   } ]
 }, {
   "scenario" : "org.gradle.performance.regression.corefeature.TaskAvoidancePerformanceTest.help with lazy and eager tasks",
   "durations" : [ {
     "testProject" : "largeJavaMultiProject",
-    "linux" : 216
+    "linux" : 220
   }, {
     "testProject" : "largeMonolithicJavaProject",
-    "linux" : 126
+    "linux" : 129
   } ]
 } ]

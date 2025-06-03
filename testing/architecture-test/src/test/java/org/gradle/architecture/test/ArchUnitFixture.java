@@ -52,6 +52,9 @@ import org.jspecify.annotations.Nullable;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.CodeSource;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -107,6 +110,9 @@ public interface ArchUnitFixture {
         .as("written in Java or Groovy");
 
     DescribedPredicate<JavaMember> not_from_fileevents = declaredIn(resideOutsideOfPackages("org.gradle.fileevents.."))
+        .as("not from fileevents");
+
+    DescribedPredicate<JavaClass> not_from_fileevents_classes = resideOutsideOfPackages("org.gradle.fileevents..")
         .as("not from fileevents");
 
     DescribedPredicate<JavaMember> kotlin_internal_methods = declaredIn(gradlePublicApi())
@@ -353,12 +359,12 @@ public interface ArchUnitFixture {
                 method.getSourceCodeLocation())
 
                 : String.format("%s has arguments/return type %s that %s not %s in %s",
-                    method.getDescription(),
-                    String.join(", ", matchedClasses),
-                    matchedClasses.size() == 1 ? "is" : "are",
-                    types.getDescription(),
-                    method.getSourceCodeLocation()
-                );
+                method.getDescription(),
+                String.join(", ", matchedClasses),
+                matchedClasses.size() == 1 ? "is" : "are",
+                types.getDescription(),
+                method.getSourceCodeLocation()
+            );
             events.add(new SimpleConditionEvent(method, fulfilled, message));
         }
 
@@ -393,13 +399,18 @@ public interface ArchUnitFixture {
         private static final PackageMatchers INCLUDES = PackageMatchers.of(parsePackageMatcher(System.getProperty("org.gradle.public.api.includes")));
         private static final PackageMatchers EXCLUDES = PackageMatchers.of(parsePackageMatcher(System.getProperty("org.gradle.public.api.excludes")));
 
+        public static boolean test(String packageName) {
+            return INCLUDES.test(packageName) && !EXCLUDES.test(packageName);
+        }
+
         public InGradlePublicApiPackages() {
             super("in Gradle public API packages");
         }
 
         @Override
         public boolean test(JavaClass input) {
-            return INCLUDES.test(input.getPackageName()) && !EXCLUDES.test(input.getPackageName());
+            String packageName = input.getPackageName();
+            return test(packageName);
         }
 
         private static Set<String> parsePackageMatcher(String packageList) {
@@ -533,5 +544,18 @@ public interface ArchUnitFixture {
         } catch (NoClassDefFoundError | Exception e) {
             return null;
         }
+    }
+
+    @Nullable
+    static Path getClassFile(JavaClass javaClass) {
+        Class<?> reflectedClass = safeReflect(javaClass);
+        if (reflectedClass == null) {
+            return null;
+        }
+        CodeSource codeSource = reflectedClass.getProtectionDomain().getCodeSource();
+        if (codeSource == null) {
+            return null;
+        }
+        return Paths.get(codeSource.getLocation().getPath());
     }
 }
