@@ -149,12 +149,12 @@ public class DefaultProblemReporter implements ProblemReporterInternal {
      */
     @Override
     public void report(Problem problem, OperationIdentifier id) {
-        ProblemInternal internalProblem = (ProblemInternal) problem;
-        Throwable exception = internalProblem.getException();
+        ProblemInternal problemInternal = (ProblemInternal) problem;
+        Throwable exception = problemInternal.getException();
         if (exception != null) {
-            exceptionProblemRegistry.onProblem(transform(exception), internalProblem);
+            exceptionProblemRegistry.onProblem(transform(exception), problemInternal);
         }
-        problemSummarizer.emit(internalProblem, id);
+        problemSummarizer.emit(problemInternal, id);
     }
 
     @NonNull
