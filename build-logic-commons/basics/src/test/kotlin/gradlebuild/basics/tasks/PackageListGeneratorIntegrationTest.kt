@@ -87,7 +87,6 @@ class PackageListGeneratorIntegrationTest {
 
     @Test
     fun `package list excludes default package`() {
-        val actualPackages = getRelocatedPackages(someClasses() + someClassesInDefaultPackage())
         assertEquals(listOf<String>(), getRelocatedPackages(someClassesInDefaultPackage()))
         assertEquals(EXPECTED_PACKAGE_LIST, getRelocatedPackages(someClasses() + someClassesInDefaultPackage()))
     }
