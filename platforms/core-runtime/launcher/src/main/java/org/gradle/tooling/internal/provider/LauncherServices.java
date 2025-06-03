@@ -220,6 +220,8 @@ public class LauncherServices extends AbstractGradleModuleServices {
                     new RootBuildLifecycleBuildActionExecutor(
                         buildStateRegistry,
                         new BuildCompletionNotifyingBuildActionRunner(
+                            gradleEnterprisePluginManager,
+                            failureFactory,
                             new FileSystemWatchingBuildActionRunner(
                                 eventEmitter,
                                 virtualFileSystem,
@@ -242,8 +244,8 @@ public class LauncherServices extends AbstractGradleModuleServices {
                                     buildLoggerFactory,
                                     registry
                                 ),
-                                options),
-                            gradleEnterprisePluginManager)),
+                                options)
+                        )),
                     eventEmitter,
                     startParameter,
                     problemsService,
