@@ -122,6 +122,6 @@ public class ValidateStep<C extends BeforeExecutionContext, R extends Result> im
 
     @ServiceScope(Scope.Global.class)
     public interface ValidationWarningRecorder {
-        void recordValidationWarnings(UnitOfWork.Identity identity, UnitOfWork work, Collection<? extends InternalProblem> warnings);
+        void recordValidationWarnings(UnitOfWork.Identity identity, UnitOfWork work, Collection<? extends ProblemInternal> warnings);
     }
 }

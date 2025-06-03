@@ -77,6 +77,9 @@ class PackageListGeneratorIntegrationTest {
 
     @Test
     fun `generates a curated list of package prefixes from directories`() {
+        val actualPackages = getRelocatedPackages(someClasses())
+        // debugging ahar
+        println("Actual (directories test): $actualPackages")
         assertEquals(EXPECTED_PACKAGE_LIST, getRelocatedPackages(someClasses()))
     }
 
@@ -87,6 +90,9 @@ class PackageListGeneratorIntegrationTest {
 
     @Test
     fun `package list excludes default package`() {
+        val actualPackages = getRelocatedPackages(someClasses() + someClassesInDefaultPackage())
+        // debugging ahar
+        println("Actual (excludes default test): $actualPackages")
         assertEquals(listOf<String>(), getRelocatedPackages(someClassesInDefaultPackage()))
         assertEquals(EXPECTED_PACKAGE_LIST, getRelocatedPackages(someClasses() + someClassesInDefaultPackage()))
     }

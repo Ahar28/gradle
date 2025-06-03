@@ -421,7 +421,7 @@ public class DefaultDependencyManagementServices implements DependencyManagement
             DomainObjectContext domainObjectContext,
             DefaultConfigurationFactory defaultConfigurationFactory,
             ResolutionStrategyFactory resolutionStrategyFactory,
-            ProblemsInternal problemsService
+            ProblemsInternal problemsService,
             ConfigurationResolver.Factory resolverFactory,
             AttributesSchemaInternal attributesSchema
         ) {
