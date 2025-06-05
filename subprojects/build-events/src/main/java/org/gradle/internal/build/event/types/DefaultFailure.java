@@ -16,6 +16,7 @@
 package org.gradle.internal.build.event.types;
 
 import org.gradle.api.problems.internal.ProblemInternal;
+import com.google.common.collect.ImmutableList;
 import org.gradle.internal.exceptions.MultiCauseException;
 import org.gradle.internal.problems.failure.DefaultFailureFactory;
 import org.gradle.internal.problems.failure.Failure;

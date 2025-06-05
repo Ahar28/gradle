@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 public interface ProblemLocator {
+    Collection<ProblemInternal> findAll(Throwable t);
     ProblemLocator EMPTY_LOCATOR = new ProblemLocator() {
         @Override
         public Collection<ProblemInternal> findAll(Throwable t) {
@@ -27,5 +28,4 @@ public interface ProblemLocator {
         }
     };
 
-    Collection<ProblemInternal> findAll(Throwable t);
 }
