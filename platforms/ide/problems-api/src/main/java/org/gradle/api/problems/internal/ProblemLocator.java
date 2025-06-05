@@ -20,5 +20,12 @@ import java.util.Collection;
 import java.util.Collections;
 
 public interface ProblemLocator {
+    ProblemLocator EMPTY_LOCATOR = new ProblemLocator() {
+        @Override
+        public Collection<ProblemInternal> findAll(Throwable t) {
+            return Collections.emptyList();
+        }
+    };
+
     Collection<ProblemInternal> findAll(Throwable t);
 }

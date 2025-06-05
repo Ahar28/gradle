@@ -404,7 +404,7 @@ public class BuildExceptionReporter implements Action<Throwable> {
             resolutions.addAll(((ResolutionProvider) failure.getOriginal()).getResolutions());
         }
 
-        Collection<ProblemInternal> all = problemLocator.findAll(throwable);
+        Collection<ProblemInternal> all = failure.getProblems();
         for (ProblemInternal problem : all) {
             resolutions.addAll(problem.getSolutions());
         }
@@ -434,7 +434,7 @@ public class BuildExceptionReporter implements Action<Throwable> {
         try {
             String msg = failure.getMessage();
             StringBuilder builder = new StringBuilder();
-            Collection<ProblemInternal> problems = problemLocator.findAll(throwable);
+            Collection<ProblemInternal> problems = failure.getProblems();
             if (!problems.isEmpty()) {
                 // Skip the exception message unless it is a compilation error
                 if (failure.getOriginal() instanceof CompilationFailedIndicator) {
