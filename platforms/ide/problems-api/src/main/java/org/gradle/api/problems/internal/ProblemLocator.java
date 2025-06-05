@@ -17,7 +17,16 @@
 package org.gradle.api.problems.internal;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public interface ProblemLocator {
     Collection<ProblemInternal> findAll(Throwable t);
+    ProblemLocator EMPTY_LOCATOR = new ProblemLocator() {
+        @Override
+        public Collection<InternalProblem> findAll(Throwable t) {
+            return Collections.emptyList();
+        }
+    };
+
+    Collection<InternalProblem> findAll(Throwable t);
 }
