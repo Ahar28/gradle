@@ -26,6 +26,7 @@ import org.eclipse.jgit.api.errors.JGitInternalException;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.RepositoryCache;
+import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.submodule.SubmoduleWalk;
 import org.eclipse.jgit.transport.SshTransport;
 import org.eclipse.jgit.transport.Transport;
@@ -149,11 +150,13 @@ public class GitVersionControlSystem implements VersionControlSystem {
         }
     }
 
-    private static void closeGit(@Nullable Git git) {
+    public static void closeGit(@Nullable Git git) {
         if (git != null) {
             git.close();
-            RepositoryCache.clear(); // https://github.com/eclipse-jgit/jgit/issues/155#issuecomment-2765437816
         }
+        // https://github.com/eclipse-jgit/jgit/issues/155
+        RepositoryCache.clear();
+        new WindowCacheConfig().install();
     }
 
     private static void updateSubModules(Git git) throws IOException, GitAPIException {

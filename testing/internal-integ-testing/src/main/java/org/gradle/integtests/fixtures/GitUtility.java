@@ -23,6 +23,7 @@ import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.RepositoryCache;
 import org.eclipse.jgit.lib.StoredConfig;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
+import org.eclipse.jgit.storage.file.WindowCacheConfig;
 import org.eclipse.jgit.util.FS;
 import org.eclipse.jgit.util.SystemReader;
 import org.gradle.test.fixtures.file.TestFile;
@@ -65,7 +66,14 @@ public class GitUtility {
             testDirectory.file("initial-commit").createNewFile();
             git.add().addFilepattern("initial-commit").call();
             git.commit().setMessage("Initial commit").call();
+        } finally {
+            cleanup();
         }
-        RepositoryCache.clear();  // https://github.com/eclipse-jgit/jgit/issues/155#issuecomment-2765437816
+    }
+
+    private static void cleanup() {
+        // https://github.com/eclipse-jgit/jgit/issues/155
+        RepositoryCache.clear();
+        new WindowCacheConfig().install();
     }
 }
