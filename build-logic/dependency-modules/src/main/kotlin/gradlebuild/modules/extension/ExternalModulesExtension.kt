@@ -21,12 +21,12 @@ import gradlebuild.modules.model.License
 abstract class ExternalModulesExtension(bundleGroovyMajor: Int) {
 
     val groovyVersion = when (bundleGroovyMajor) {
-        4 -> "4.0.26"
+        4 -> "4.0.27"
         // This is expected to contain Groovy 5 soon, once it's released or we need to test it.
         else -> error("Unsupported Groovy major version: $bundleGroovyMajor")
     }
 
-    val configurationCacheReportVersion = "1.25"
+    val configurationCacheReportVersion = "1.26"
     val gradleIdeStarterVersion = "0.5"
     val kotlinVersion = "2.1.21"
 

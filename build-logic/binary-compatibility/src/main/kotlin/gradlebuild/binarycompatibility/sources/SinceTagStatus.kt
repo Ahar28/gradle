@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 the original author or authors.
+ * Copyright 2025 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-import gradlebuild.integrationtests.getBucketProvider
-import org.gradle.api.tasks.testing.Test
+package gradlebuild.binarycompatibility.sources
 
-tasks.named<Test>("docsTest") {
-    getBucketProvider().get().bucketProvider.configureTest(this, "docsTest")
+sealed interface SinceTagStatus {
+    data class Present(val version: String): SinceTagStatus
+    data object NotNeeded: SinceTagStatus
+    data class Inconsistent(val versions: List<String?>): SinceTagStatus
+    data object Missing: SinceTagStatus
 }
